@@ -4,12 +4,13 @@
 
 // DONE: Wrap the entire contents of this file in an IIFE.
 // Pass in to the IIFE a module, upon which objects can be attached for later access.
-function Article(opts) {
-  // REVIEW: Lets review what's actually happening here, and check out some new syntax!!
-  Object.keys(opts).forEach(e => this[e] = opts[e]);
-}
 
 (function(module) {
+  function Article(opts) {
+    // REVIEW: Lets review what's actually happening here, and check out some new syntax!!
+    Object.keys(opts).forEach(e => this[e] = opts[e]);
+  }
+
   Article.all = [];
 
   Article.prototype.toHtml = function() {
@@ -132,4 +133,6 @@ function Article(opts) {
     .then(console.log)
     .then(callback);
   };
+
+  module.Article = Article;
 })(window);

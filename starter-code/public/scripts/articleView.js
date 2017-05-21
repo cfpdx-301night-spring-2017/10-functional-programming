@@ -1,10 +1,10 @@
 'use strict';
 
 // DONE: Wrap the entire contents of this file in an IIFE.
-// Pass in to the IIFE a module, upon which objects can be attached for later access.
-var articleView = {};
+// Pass in to the IIFE a module, upon which objects can be attached for later access
 
 (function(module) {
+var articleView = {};
 
   articleView.populateFilters = function() {
     $('article').each(function() {
@@ -122,4 +122,6 @@ var articleView = {};
     $('#blog-stats .words').text(Article.numWordsAll());
   };
   console.log('admin page loaded');
+
+  module.articleView = articleView;
 })(window);
