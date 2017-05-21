@@ -1,6 +1,6 @@
 'use strict';
 
-// TODO: Wrap the entire contents of this file in an IIFE.
+// DONE: Wrap the entire contents of this file in an IIFE.
 // Pass in to the IIFE a module, upon which objects can be attached for later access.
 var articleView = {};
 
@@ -106,18 +106,20 @@ var articleView = {};
     articleView.handleAuthorFilter();
     articleView.handleMainNav();
     articleView.setTeasers();
+    console.log('index page loaded');
   };
 
   articleView.initAdminPage = function() {
-    // TODO: Call the Handlebars `.compile` function, which will return a function for you to use where needed.
+    // DONE: Call the Handlebars `.compile` function, which will return a function for you to use where needed.
     var template = Handlebars.compile($('#author-stats-template').html());
     // REVIEW: We use `forEach` here because we are relying on the side-effects of the callback function:
     // appending to the DOM.
     // The callback is not required to return anything.
     Article.numWordsByAuthor().forEach(stat => $('.author-stats').append(template(stat)));
-
+    console.log('author stats template added');
     // REVIEW: Simply write the correct values to the page:
     $('#blog-stats .articles').text(Article.all.length);
     $('#blog-stats .words').text(Article.numWordsAll());
   };
+  console.log('admin page loaded');
 })(window);
